@@ -1,0 +1,40 @@
+{
+  "author": "daoyu@umu.com",
+  "manifest_version": 2,
+  "name": "umu dev helper",
+  "version": "1.5.0",
+  "description": "(1) 切换开发版本,支持快捷键; (2) 日语版同声传译; (3) 自动填写问卷;",
+  "background": {
+    "scripts": [
+    ]
+  },
+  "icons": {
+    "16": "images/umu16.png",
+    "48": "images/umu48.png",
+    "128": "images/umu128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.iuv.net/*"
+      ],
+      "exclude_matches": [
+        "http://gitlab.iuv.net/*"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "css":[
+        "css/umu-dev-helper.css"
+      ]
+    }
+
+  ],
+  "permissions": [
+    "http://*.iuv.net/"
+  ],
+  "web_accessible_resources": [
+    "css/umu-dev-helper.css"
+  ],
+  "homepage_url": "http://daoyuly.github.io/"
+}
