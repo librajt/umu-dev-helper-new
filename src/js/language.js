@@ -96,7 +96,7 @@ function goLang(index) {
 
 function languageHelper1() {
     var currentlang = getCookie('_SYSTEM');
-    var btns = $('.chrome-ext-umu-btn');
+    var btns = $('.chrome-ext-umu-lang');
 
     btns.each(function (index,obj) {
         var $btn = $(obj);

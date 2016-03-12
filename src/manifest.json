@@ -2,7 +2,7 @@
   "author": "daoyu@umu.com",
   "manifest_version": 2,
   "name": "umu dev helper",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "(1) 切换开发版本,支持快捷键; (2) 日语版同声传译; (3) 自动填写问卷; https://github.com/daoyuly/umu-dev-helper-new",
   "background": {
     "scripts": [

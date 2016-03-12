@@ -1,22 +1,20 @@
 .chrome-ext-umu {
-    width: 120px;
-    height: 100px;
     z-index: 99999;
     position: fixed;
-    bottom: 80px;
+    bottom: 20px;
     left: 10px;
     transition: left 0.5s ease;
 }
 
 .chrome-ext-umu-hide {
-    left: -110px;
+    left: -80px;
 }
 
 .chrome-ext-umu-btn-close {
     display: inline-block;
     position: relative;
     top: 0;
-    left: 120px;
+    left: 80px;
     cursor: pointer;
     font-size: 18px;
 }
@@ -24,7 +22,7 @@
 
 .chrome-ext-umu-btn {
     cursor: pointer;
-    width: 120px;
+    width: 90px;
     height: 30px;
     display: block;
     background: #aaa;
@@ -36,4 +34,12 @@
 
 .chrome-ext-umu-btn.chrome-ext-umu-btn-active {
     background: #cacaca;
+}
+
+.chrome-ext-umu-lang {
+
+}
+
+.chrome-ext-umu-auto-fill {
+
 }
