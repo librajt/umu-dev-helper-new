@@ -28,6 +28,7 @@ $('document').ready(function () {
     builderHtml();
 
     languageHelper1();
+    panelStatus();
 
     var currentlang = getCookie('_SYSTEM');
     enableTranslate = true;
