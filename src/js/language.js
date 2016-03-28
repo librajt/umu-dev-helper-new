@@ -76,14 +76,17 @@ function languageHelper1() {
         }
     });
 
+    var $closeBtn = $('.chrome-ext-umu-btn-close');
 
-    $('.chrome-ext-umu-btn-close').on('click', function (e) {
+    $closeBtn.on('click', function (e) {
         //body.removeChild(panel);
         $('.chrome-ext-umu').toggleClass('chrome-ext-umu-hide');
         if ($('.chrome-ext-umu.chrome-ext-umu-hide').length == 1) {
             localStorage.setItem(storage_key_chrome_ext_umu_show_status,1);
+            $closeBtn.html('&gt;');
         } else  {
             localStorage.setItem(storage_key_chrome_ext_umu_show_status,0);
+            $closeBtn.html('&lt;');
         }
         enableTranslate = !enableTranslate;
 
