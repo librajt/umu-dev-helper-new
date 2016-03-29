@@ -1836,8 +1836,7 @@ var zh_cn = window['zh_cn_' + currentVersion];
 */
 
 // 最长公共子串
-function longestCommonSubstring( str1, str2) 
-{
+function longestCommonSubstring (str1, str2) {
     var size1 = str1.length;
     var size2 = str2.length;
     if (size1 == 0 || size2 == 0) return 0;
