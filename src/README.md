@@ -21,3 +21,4 @@ address：https://github.com/daoyuly/umu-dev-helper
 #更新
 2016-02-12 实现fis3;
 2016-03-29 增加es6支持;
+2016-03-29 增加modao文本可选择
