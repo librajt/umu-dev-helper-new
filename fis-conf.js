@@ -45,6 +45,9 @@ fis.match('src/js/demo.es6', {
     packOrder: -94
 });
 
+fis.match('src/js/maodao.es6', {
+    packOrder: -93
+});
 
 fis.match('src/js/*.js', {
     packTo: '/umu-dev-helper/js/content.js'

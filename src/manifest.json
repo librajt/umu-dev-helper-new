@@ -16,7 +16,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*.iuv.net/*"
+        "http://*.iuv.net/*",
+        "https://modao.cc/*"
       ],
       "exclude_matches": [
         "http://gitlab.iuv.net/*"
@@ -31,7 +32,8 @@
 
   ],
   "permissions": [
-    "http://*.iuv.net/"
+    "http://*.iuv.net/",
+    "https://modao.cc/"
   ],
   "web_accessible_resources": [
     "css/umu-dev-helper.css"

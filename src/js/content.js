@@ -24,7 +24,7 @@ function builderHtml() {
 }
 
 
-$('document').ready(function () {
+function bootUMU() {
     builderHtml();
 
     languageHelper1();
@@ -65,6 +65,11 @@ $('document').ready(function () {
         selectQuestionType();
         fillTextarea();
     });
+}
 
+$('document').ready(function () {
+    if (window.location.href.indexOf('iuv.net') > -1) {
+        bootUMU();
+    }
 
 });
