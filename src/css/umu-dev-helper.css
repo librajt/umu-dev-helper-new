@@ -5,13 +5,13 @@
     left: 10px;
     transition: all 0.5s ease-in;
     font-size: 14px;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(132, 110, 100, 0.8)),to(rgba(101, 84, 76, 0.8)));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(132, 110, 100, 0.8)), to(rgba(101, 84, 76, 0.8)));
     background: -webkit-linear-gradient(top, rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8));
 }
 
 .chrome-ext-umu-hide {
     left: -80px;
-    bottom: -160px;
+    bottom: -186px;
 }
 
 .chrome-ext-umu-btn-close {
@@ -23,7 +23,6 @@
     font-size: 18px;
     color: #fff;
 }
-
 
 .chrome-ext-umu-btn {
     cursor: pointer;
@@ -47,4 +46,10 @@
 
 .chrome-ext-umu-auto-fill {
 
+}
+
+.chrome-ext-umu-lang-env {
+    background: #e0c0c0;
+    font-size: 12px;
+    line-height: 12px;
 }

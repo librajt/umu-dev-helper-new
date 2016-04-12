@@ -68,7 +68,7 @@ function bootUMU() {
 }
 
 $('document').ready(function () {
-    if (window.location.href.indexOf('iuv.net') > -1) {
+    if (window.location.href.indexOf('umucdn.cn') > -1) {
         bootUMU();
     }
 

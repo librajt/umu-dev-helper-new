@@ -54,6 +54,9 @@
 
 // 触发change事件
 function triggerEvent(eventType,obj) {
+  if(!obj) {
+    return;
+  }
     var event = document.createEvent("UIEvents");
     event.initUIEvent(eventType, true, true, window, 1);
     obj.dispatchEvent(event);
