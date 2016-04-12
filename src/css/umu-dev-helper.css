@@ -11,7 +11,7 @@
 
 .chrome-ext-umu-hide {
     left: -80px;
-    bottom: -186px;
+    bottom: -160px;
 }
 
 .chrome-ext-umu-btn-close {
@@ -49,7 +49,35 @@
 }
 
 .chrome-ext-umu-lang-env {
-    background: #e0c0c0;
-    font-size: 12px;
-    line-height: 12px;
+    position: absolute;
+    top:-20px;
+    text-align: left;
+    background: transparent;
+    border-bottom: none;
+    width: 80px;
 }
+
+
+.chrome-ext-umu-lang-env img {
+    border-radius: 50%;
+    width: 36px;
+}
+
+
+.chrome-ext-umu-lang-compile-time {
+    background: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
