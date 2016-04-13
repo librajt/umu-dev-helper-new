@@ -21,10 +21,9 @@ var avatarMap = {
 var defaultAvatarUrl = 'images/avatar.png';
 
 (function () {
-    let envInfo;
 
     function getTimeDuration(sec) {
-        var duration = (+sec) / 1000;
+        var duration = Math.floor( (+sec) / 1000);
         var days = 0; //Math.floor(duration / (24 * 3600));
         var hours = Math.floor((duration - days * 24 * 3600) / 3600);
         var minutes = Math.floor((duration - days * 24 * 3600 - hours * 3600) / 60);
@@ -40,7 +39,7 @@ var defaultAvatarUrl = 'images/avatar.png';
         // 地址 http://wap.yx.umucdn.cn/themes/zh-cn/env.json
         let hostName = window.location.hostname.replace('test.', '');
         let currentlang = getCookie('_lang') || 'zh-cn';
-        let url = 'http://' + hostName + '/themes/' + currentlang + '/env.json';
+        let url = 'http://' + hostName + '/themes/' + currentlang + '/env.json?'+ (new  Date()).getTime();
         let defaultAvatarUrl = "http://zjx.umucdn.cn/themes/zh-cn/images/avatar.png";
 
         $.getJSON(url, function (data) {
@@ -69,6 +68,8 @@ var defaultAvatarUrl = 'images/avatar.png';
     }
 
     getEnvInfo();
+
+    setInterval(getEnvInfo, 1000 * 60 * 5);
 
 })();
 
