@@ -53,6 +53,10 @@ fis.match('src/js/envInfo.es6', {
     packOrder: -92
 });
 
+fis.match('src/js/jenkins.es6', {
+    packOrder: -91
+});
+
 
 fis.match('src/js/*.js', {
     packTo: '/umu-dev-helper/js/content.js'

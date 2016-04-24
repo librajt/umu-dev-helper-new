@@ -1,16 +1,44 @@
+/*
+ * 语言切换和线上产品切换
+ * */
 
 var systemMap = {
-                '1': 'TW',
-                '2': 'CN',
-                '3': 'EN',
-                '4': 'JP'
-            };
+    '1': 'TW',
+    '2': 'CN',
+    '3': 'EN',
+    '4': 'JP'
+};
 var langMap = {
-                '1': 'zh-tw',
-                '2': 'zh-cn',
-                '3': 'en-us',
-                '4': 'ja-jp'
-            };
+    '1': 'zh-tw',
+    '2': 'zh-cn',
+    '3': 'en-us',
+    '4': 'ja-jp'
+};
+
+var siteMap = {
+    1: "http://www.umu.tw/",
+    2: "https://www.umu.cn/",
+    3: "http://www.umu.com/",
+    4: "http://www.umu.co/"
+};
+
+var domainMap = {
+    'pc-yx': 'yx',
+    'pc-zjx': 'zjx',
+    'pc-zxj': 'zxj',
+    'wap-yx': 'wap.yx',
+    'wap-zjx': 'wap.zjx',
+    'wap-zxj': 'wap.zxj'
+
+};
+
+
+// 是否是开发环境
+function isDevEnv() {
+    var href = window.location.href;
+    var reg = /umucdn\.cn/ig;
+    return reg.test(href);
+}
 
 var storage_key_chrome_ext_umu_show_status = 'storage_key_chrome_ext_umu_show_status';
 var storage_val_chrome_ext_umu_show_status = localStorage.getItem(storage_key_chrome_ext_umu_show_status);
@@ -32,48 +60,71 @@ function getCookie(name) {
         return null;
 }
 
+function clearCookie() {
+    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    var date = new Date(0).toUTCString();
+    if (keys) {
+        for (var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + date + ';path=/;'
+    }
 
+    window.location.reload();
+}
 function setCookie(system, lang) {
     document.cookie = "_SYSTEM=" + system + ";path=/";
     document.cookie = "_lang=" + lang + ";path=/";
 }
 
 function goLang(index) {
-    setCookie(systemMap[index], langMap[index]);
-    location.reload();
+    if (isDevEnv()) {
+        setCookie(systemMap[index], langMap[index]);
+        location.reload();
+    } else {
+        // 线上
+        location.href = siteMap[index];
+    }
+
 }
+
 
 function languageHelper1() {
     var currentlang = getCookie('_SYSTEM');
     var btns = $('.chrome-ext-umu-lang');
 
-    btns.each(function (index,obj) {
+    btns.each(function (index, obj) {
         var $btn = $(obj);
         var index = $btn.attr('data-index');
         if (systemMap[index] == currentlang) {
             $btn.addClass('chrome-ext-umu-btn-active');
         }
     });
-    
-    btns.on('click',function (e) {
+
+    btns.on('click', function (e) {
         var $btn = $(this);
         var index = $btn.attr('data-index');
-        setCookie(systemMap[index], langMap[index]);
-        var href = window.location.href;
-        if (href.indexOf('enterprise') >- 1 && (href.indexOf('zh-cn') >- 1
-            || href.indexOf('en-us') >- 1
-            || href.indexOf('ja-jp') >- 1
-            || href.indexOf('zh-tw') >- 1 )) {
+        // 开发环境
+        if (isDevEnv()) {
+            setCookie(systemMap[index], langMap[index]);
+            var href = window.location.href;
+            if (href.indexOf('enterprise') > -1 && (href.indexOf('zh-cn') > -1
+                || href.indexOf('en-us') > -1
+                || href.indexOf('ja-jp') > -1
+                || href.indexOf('zh-tw') > -1 )) {
 
-            href = href.replace(/(zh-cn)|(zh-tw)|(ja-jp)|(en-us)/,function () {
-                return langMap[index];
-            });
+                href = href.replace(/(zh-cn)|(zh-tw)|(ja-jp)|(en-us)/, function () {
+                    return langMap[index];
+                });
 
-            window.location.href = href;
+                window.location.href = href;
+            }
+            else {
+                location.reload();
+            }
+        } else {
+            // 线上
+            location.href = siteMap[index];
         }
-        else {
-            location.reload();
-        }
+
     });
 
     var $closeBtn = $('.chrome-ext-umu-btn-close');
@@ -82,17 +133,41 @@ function languageHelper1() {
         //body.removeChild(panel);
         $('.chrome-ext-umu').toggleClass('chrome-ext-umu-hide');
         if ($('.chrome-ext-umu.chrome-ext-umu-hide').length == 1) {
-            localStorage.setItem(storage_key_chrome_ext_umu_show_status,1);
+            localStorage.setItem(storage_key_chrome_ext_umu_show_status, 1);
             $closeBtn.html('&gt;');
-        } else  {
-            localStorage.setItem(storage_key_chrome_ext_umu_show_status,0);
+        } else {
+            localStorage.setItem(storage_key_chrome_ext_umu_show_status, 0);
             $closeBtn.html('&lt;');
         }
         enableTranslate = !enableTranslate;
 
     });
 
+
+    var $domainBtn = $('.chrome-ext-umu-domain-btn');
+    $domainBtn.on('click', function () {
+        var $btn = $(this);
+        var domain = $btn.attr('data-domain');
+        var host = domainMap[domain];
+        var href = window.location.href;
+
+        if (href.indexOf('.wap.') >= 0 && host.indexOf('wap') < 0) {
+           // window.location.href = '';
+        }
+
+        var newhref = href.replace(/(yx|zxj|zjx|wap.yx|wap.zxj|wap.zjx)/, function ($1, $2) {
+            return host;
+        });
+
+        window.location.href = newhref;
+
+
+    });
+
+
 }
+
+
 
 
 

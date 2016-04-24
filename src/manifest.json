@@ -2,7 +2,7 @@
   "author": "daoyu@umu.com",
   "manifest_version": 2,
   "name": "umu dev helper",
-  "version": "1.9.6",
+  "version": "1.9.9",
   "description": "(1) 切换开发版本,支持快捷键; (2) 日语版同声传译; (3) 自动填写问卷; (4) modao文本可选择; (5) 隐藏位置; https://github.com/daoyuly/umu-dev-helper-new",
   "background": {
     "scripts": [
@@ -17,7 +17,12 @@
     {
       "matches": [
         "http://*.umucdn.cn/*",
-        "https://modao.cc/*"
+        "https://modao.cc/*",
+        "https://www.umu.cn/",
+        "http://www.umu.co/",
+        "http://www.umu.com/",
+        "http://www.umu.tw/",
+        "http://www.umu.hk/"
       ],
       "exclude_matches": [
         "http://gitlab.umucdn.cn/*"
@@ -34,7 +39,13 @@
   "permissions": [
     "http://*.umucdn.cn/",
     "https://modao.cc/",
-    "https://s3.amazonaws.com/"
+    "https://*.amazonaws.com/",
+    "https://www.umu.cn/",
+    "http://www.umu.co/",
+    "http://www.umu.com/",
+    "http://www.umu.tw/",
+    "http://www.umu.hk/",
+    "http://*.qiniucdn.com/"
   ],
   "web_accessible_resources": [
     "css/umu-dev-helper.css",

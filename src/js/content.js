@@ -56,7 +56,7 @@ function bootUMU() {
                 testCaseMain();
             }, 2000);
 
-        }
+        };
     }
 
 
@@ -65,10 +65,28 @@ function bootUMU() {
         selectQuestionType();
         fillTextarea();
     });
+
+
+    $('.chrome-ext-umu-lang-env').on('click', function(){
+       // clearCookie();
+        window.open('http://jenkins.umucdn.cn/jenkins/','_blank');
+    });
+
+
+
+
 }
 
+
+// 线上的功能先去掉
 $('document').ready(function () {
-    if (window.location.href.indexOf('umucdn.cn') > -1) {
+    var href = window.location.href;
+    if (href.indexOf('umucdn.cn') > -1 ||
+        href.indexOf('umu.cn') > 10000 ||
+        href.indexOf('umu.co') > 100001 ||
+        href.indexOf('umu.com') > 10000 ||
+        href.indexOf('umu.hk') > 10000 ||
+        href.indexOf('umu.tw') > 10000) {
         bootUMU();
     }
 

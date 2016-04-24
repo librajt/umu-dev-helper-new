@@ -14,7 +14,8 @@ var avatarMap = {
     liudaoyu: 'https://s3.amazonaws.com/profile_photos/51340817909754.2AiujcNdlo4zspiR3ygG_36x36.png',
     dashui: 'https://s3.amazonaws.com/profile_photos/49805373656954.qIy0AeyYIp72PaYYgKqx_36x36.png',
     xuemin: 'https://s3.amazonaws.com/profile_photos/45778255451309.YVDNQ7Vu9yeW2owKjgII_36x36.png',
-    yixiao: 'https://s3.amazonaws.com/profile_photos/62644716150644.NlNsnJ9brQrCOqR44gx0_36x36.png'
+    yixiao: 'https://s3.amazonaws.com/profile_photos/62644716150644.NlNsnJ9brQrCOqR44gx0_36x36.png',
+    root: 'http://7sbqxj.com2.z0.glb.qiniucdn.com/o_1ag9dk80v1iiq1cp1le7u071anj9.png'
 
 };
 
@@ -23,7 +24,7 @@ var defaultAvatarUrl = 'images/avatar.png';
 (function () {
 
     function getTimeDuration(sec) {
-        var duration = Math.floor( (+sec) / 1000);
+        var duration = Math.floor((+sec) / 1000);
         var days = 0; //Math.floor(duration / (24 * 3600));
         var hours = Math.floor((duration - days * 24 * 3600) / 3600);
         var minutes = Math.floor((duration - days * 24 * 3600 - hours * 3600) / 60);
@@ -39,7 +40,7 @@ var defaultAvatarUrl = 'images/avatar.png';
         // 地址 http://wap.yx.umucdn.cn/themes/zh-cn/env.json
         let hostName = window.location.hostname.replace('test.', '');
         let currentlang = getCookie('_lang') || 'zh-cn';
-        let url = 'http://' + hostName + '/themes/' + currentlang + '/env.json?'+ (new  Date()).getTime();
+        let url = 'http://' + hostName + '/themes/' + currentlang + '/env.json?' + (new Date()).getTime();
         let defaultAvatarUrl = "http://zjx.umucdn.cn/themes/zh-cn/images/avatar.png";
 
         $.getJSON(url, function (data) {
@@ -58,8 +59,8 @@ var defaultAvatarUrl = 'images/avatar.png';
 
                 avatar = avatarMap[name.toLowerCase()] || defaultAvatarUrl;
 
-               // let avatar = chrome.extension.getURL(avatar);
-                $('#chrome-ext-umu-lang-env').html(`<img class="avatar" src="${avatar}" title="${name}">`);
+                // let avatar = chrome.extension.getURL(avatar);
+                $('#chrome-ext-umu-lang-env').html(`<img class="chrome-ext-umu-avatar" src="${avatar}" title="${name}">`);
 
             }
 
@@ -67,9 +68,10 @@ var defaultAvatarUrl = 'images/avatar.png';
         });
     }
 
-    getEnvInfo();
-
-    setInterval(getEnvInfo, 1000 * 60 * 5);
+    if (isDevEnv()) {
+        getEnvInfo();
+        setInterval(getEnvInfo, 1000 * 60 * 5);
+    }
 
 })();
 
