@@ -47,6 +47,7 @@ var storage_val_chrome_ext_umu_show_status = localStorage.getItem(storage_key_ch
 function panelStatus() {
     if (storage_val_chrome_ext_umu_show_status == 1) {
         $('.chrome-ext-umu').addClass('chrome-ext-umu-hide');
+        $('.chrome-ext-umu-btn-close').removeClass('is-active');
         enableTranslate = false;
     }
 }
@@ -134,10 +135,12 @@ function languageHelper1() {
         $('.chrome-ext-umu').toggleClass('chrome-ext-umu-hide');
         if ($('.chrome-ext-umu.chrome-ext-umu-hide').length == 1) {
             localStorage.setItem(storage_key_chrome_ext_umu_show_status, 1);
-            $closeBtn.html('&gt;');
+            $closeBtn.removeClass('is-active');
+            // $closeBtn.html('&gt;');
         } else {
             localStorage.setItem(storage_key_chrome_ext_umu_show_status, 0);
-            $closeBtn.html('&lt;');
+            // $closeBtn.html('&lt;');
+            $closeBtn.addClass('is-active');
         }
         enableTranslate = !enableTranslate;
 
@@ -152,7 +155,7 @@ function languageHelper1() {
         var href = window.location.href;
 
         if (href.indexOf('.wap.') >= 0 && host.indexOf('wap') < 0) {
-           // window.location.href = '';
+            // window.location.href = '';
         }
 
         var newhref = href.replace(/(yx|zxj|zjx|wap.yx|wap.zxj|wap.zjx)/, function ($1, $2) {

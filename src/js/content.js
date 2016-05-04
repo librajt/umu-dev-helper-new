@@ -67,12 +67,36 @@ function bootUMU() {
     });
 
 
-    $('.chrome-ext-umu-lang-env').on('click', function(){
-       // clearCookie();
-        window.open('http://jenkins.umucdn.cn/jenkins/','_blank');
+    $('.chrome-ext-umu-lang-env').on('click', function () {
+        // clearCookie();
+        var product = 'umu_pc';
+        var href = window.location.href;
+        if (href.indexOf('m.') > -1) {
+            product = 'umu_wap';
+        } else if (href.indexOf('wap.') > -1) {
+            product = 'umu_wap_student';
+        } else if (href.indexOf('enterprise.') > -1) {
+            product = 'umu_enterprise';
+        }
+
+        window.open('http://jenkins.umucdn.cn/jenkins/job/' + product + '/build?delay=0sec', 'blank');
+        // window.open('http://jenkins.umucdn.cn/jenkins/', 'blank');
     });
 
 
+    var $umuPageRuler;
+    if (!$umuPageRuler) {
+        $umuPageRuler = $('#chrome-ext-umu-ruler');
+    }
+    $('#chrome-ext-umu-ruler-btn').on('click', function () {
+
+        if ($umuPageRuler.is(":hidden")) {
+            $umuPageRuler.show();
+        } else {
+            $umuPageRuler.hide();
+        }
+
+    });
 
 
 }
