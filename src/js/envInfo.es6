@@ -70,7 +70,7 @@ var defaultAvatarUrl = 'images/avatar.png';
 
     if (isDevEnv()) {
         getEnvInfo();
-        setInterval(getEnvInfo, 1000 * 60 * 5);
+        // setInterval(getEnvInfo, 1000 * 60 * 5);
     }
 
 })();

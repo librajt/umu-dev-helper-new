@@ -2,7 +2,7 @@
   "author": "daoyu@umu.com",
   "manifest_version": 2,
   "name": "umu dev helper",
-  "version": "1.9.15",
+  "version": "1.9.17",
   "description": "切换开发版本,支持快捷键;日语版同声传译;自动填写问卷;modao文本可选择;隐藏位置;线下域名跳转;网格标尺; ",
   "background": {
     "scripts": [

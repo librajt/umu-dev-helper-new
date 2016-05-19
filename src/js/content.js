@@ -42,6 +42,7 @@ function bootUMU() {
 
         if (enableTranslate && currentlang == 'JP') {
             var elm = e.target;
+            // 翻译准确度不高,临时去掉
             translateJp(elm);
         }
 
