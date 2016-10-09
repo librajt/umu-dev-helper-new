@@ -22,7 +22,8 @@
         "http://www.umu.co/",
         "http://www.umu.com/",
         "http://www.umu.tw/",
-        "http://www.umu.hk/"
+        "http://www.umu.hk/",
+        "https://*.umu.cn/*"
       ],
       "exclude_matches": [
         "http://gitlab.umucdn.cn/*"
