@@ -61,6 +61,17 @@ fis.match('src/js/ruler.es6', {
     packOrder: -90
 });
 
+/*fis.match('src/js/postman.es6', {
+    packOrder: -89
+});*/
+
+fis.match('src/js/smallFlowTestSwitch.es6', {
+    packOrder: -87
+});
+
+
+
+
 fis.match('src/js/*.js', {
     packTo: '/umu-dev-helper/js/content.js'
 });

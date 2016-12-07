@@ -26,9 +26,11 @@ var domainMap = {
     'pc-yx': 'yx',
     'pc-zjx': 'zjx',
     'pc-zxj': 'zxj',
-    'wap-yx': 'wap.yx',
-    'wap-zjx': 'wap.zjx',
-    'wap-zxj': 'wap.zxj'
+    'pc-zz': 'zz',
+    'm-yx': 'm.yx',
+    'm-zjx': 'm.zjx',
+    'm-zxj': 'm.zxj',
+    'm-zz': 'm.zz'
 
 };
 
@@ -154,11 +156,11 @@ function languageHelper1() {
         var host = domainMap[domain];
         var href = window.location.href;
 
-        if (href.indexOf('.wap.') >= 0 && host.indexOf('wap') < 0) {
+        if (href.indexOf('.m.') >= 0 && host.indexOf('m') < 0) {
             // window.location.href = '';
         }
 
-        var newhref = href.replace(/(yx|zxj|zjx|wap.yx|wap.zxj|wap.zjx)/, function ($1, $2) {
+        var newhref = href.replace(/(yx|zxj|zjx|zz|m.yx|m.zxj|m.zjx|m.zz)/, function ($1, $2) {
             return host;
         });
 

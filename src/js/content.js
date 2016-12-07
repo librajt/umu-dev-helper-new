@@ -73,7 +73,7 @@ function bootUMU() {
         var product = 'umu_pc';
         var href = window.location.href;
         if (href.indexOf('m.') > -1) {
-            product = 'umu_wap';
+            product = 'umu_wap_student';
         } else if (href.indexOf('wap.') > -1) {
             product = 'umu_wap_student';
         } else if (href.indexOf('enterprise.') > -1) {
@@ -98,6 +98,8 @@ function bootUMU() {
         }
 
     });
+
+    smallFlowTestSwitch();
 
 
 }
