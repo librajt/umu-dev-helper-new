@@ -11,7 +11,7 @@ function smallFlowTestSwitch() {
      * 打开小流量
      * */
     var open = function () {
-        document.cookie = "UMUER=IN;path=/"
+        document.cookie = "UMUER=IN;path=/";
     };
 
     /**
@@ -19,7 +19,7 @@ function smallFlowTestSwitch() {
      * */
     var close = function () {
         var domain = location.host.replace(/^\w+/, '');
-        document.cookie = 'UMUER=; path=\ expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = 'UMUER=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     };
 
 
