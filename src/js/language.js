@@ -74,8 +74,9 @@ function clearCookie() {
     window.location.reload();
 }
 function setCookie(system, lang) {
-    document.cookie = "_SYSTEM=" + system + ";path=/";
-    document.cookie = "_lang=" + lang + ";path=/";
+    var domain = '.' + window.location.host;
+    document.cookie = "_SYSTEM=" + system + ";path=/;domain=" + domain;
+    document.cookie = "_lang=" + lang + ";path=/;domain=" + domain;
 }
 
 function goLang(index) {

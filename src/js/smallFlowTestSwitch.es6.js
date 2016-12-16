@@ -11,7 +11,8 @@ function smallFlowTestSwitch() {
      * 打开小流量
      * */
     var open = function () {
-        document.cookie = "UMUER=IN;path=/";
+        var domain = window.location.host.split('www.')[1];
+        document.cookie = "UMUER=IN;path=/;domain=";
     };
 
     /**
