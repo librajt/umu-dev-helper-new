@@ -1,1 +1,8 @@
 output/*
+.DS_Store
+.idea/
+npm-debug.log
+src/.DS_Store
+src/css/.DS_Store
+src/images/.DS_Store
+src/js/.DS_Store
