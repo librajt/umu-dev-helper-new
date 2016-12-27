@@ -12,7 +12,7 @@ function smallFlowTestSwitch() {
      * */
     var open = function () {
         var domain = window.location.host.split('www.')[1];
-        document.cookie = "UMUER=IN;path=/;domain=";
+        document.cookie = "UMUER=IN;path=/;domain=" + domain;
     };
 
     /**
