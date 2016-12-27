@@ -15,7 +15,7 @@ var avatarMap = {
     dashui: 'https://s3.amazonaws.com/profile_photos/49805373656954.qIy0AeyYIp72PaYYgKqx_36x36.png',
     xuemin: 'https://s3.amazonaws.com/profile_photos/45778255451309.YVDNQ7Vu9yeW2owKjgII_36x36.png',
     yixiao: 'https://s3.amazonaws.com/profile_photos/62644716150644.NlNsnJ9brQrCOqR44gx0_36x36.png',
-    root: 'http://7sbqxj.com2.z0.glb.qiniucdn.com/o_1ag9dk80v1iiq1cp1le7u071anj9.png'
+    root: 'http://jenkins.umucdn.cn/jenkins/static/4a091afb/images/headshot.png'
 
 };
 

@@ -74,7 +74,7 @@ function clearCookie() {
     window.location.reload();
 }
 function setCookie(system, lang) {
-    var domain = '.' + window.location.host;
+    var domain = window.location.host.replace(/^test\./i, '');
     document.cookie = "_SYSTEM=" + system + ";path=/;domain=" + domain;
     document.cookie = "_lang=" + lang + ";path=/;domain=" + domain;
 }
